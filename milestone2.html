@@ -24,26 +24,29 @@
     </header>
 
     <!-- Tabs for Different Setups -->
-    <div class="container py-5">
-        <ul class="nav nav-tabs" id="setupTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="display-tab" data-bs-toggle="tab" data-bs-target="#display" type="button" role="tab" aria-controls="display" aria-selected="true">
-                    🖥️ Display Setup
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="potentiostat-tab" data-bs-toggle="tab" data-bs-target="#potentiostat" type="button" role="tab" aria-controls="potentiostat" aria-selected="false">
-                    🔬 Potentiostat Setup
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="microcontroller-tab" data-bs-toggle="tab" data-bs-target="#microcontroller" type="button" role="tab" aria-controls="microcontroller" aria-selected="false">
-                    🖧 Microcontroller Setup
-                </button>
-            </li>
-        </ul>
-
-        <div class="tab-content" id="setupTabsContent">
+    <ul class="nav nav-tabs" id="setupTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="display-tab" data-bs-toggle="tab" data-bs-target="#display" type="button" role="tab" aria-controls="display" aria-selected="true">
+            🖥️ Display Setup
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="potentiostat-tab" data-bs-toggle="tab" data-bs-target="#potentiostat" type="button" role="tab" aria-controls="potentiostat" aria-selected="false">
+            🔬 Potentiostat Setup
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="microcontroller-tab" data-bs-toggle="tab" data-bs-target="#microcontroller" type="button" role="tab" aria-controls="microcontroller" aria-selected="false">
+            🖧 Microcontroller Setup
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="project-design-tab" data-bs-toggle="tab" data-bs-target="#project-design" type="button" role="tab" aria-controls="project-design" aria-selected="false">
+            📊 Project Design
+        </button>
+    </li>
+</ul>
+            
         <!-- Display Setup -->
             <div class="tab-pane fade show active" id="display" role="tabpanel" aria-labelledby="display-tab">
                 <h3>🖥️ Display Setup</h3>
@@ -106,6 +109,19 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Project Design Tab Content -->
+<div class="tab-pane fade" id="project-design" role="tabpanel" aria-labelledby="project-design-tab">
+    <h3>📊 Initial Project Design Presentation</h3>
+    <p>This presentation outlines the initial development plan for the SweeTech Glucometer, including hardware selection, design goals, and market analysis.</p>
+    <p>
+        <a href="SweeTech_%20Glucometer%20Development%20Plan.pdf" target="_blank" class="btn btn-success">
+            📄 View Presentation (PDF)
+        </a>
+    </p>
+</div>
+
 
     <!-- Footer -->
     <footer class="text-center py-3" style="background-color: #1e6f5c; color: white;">
