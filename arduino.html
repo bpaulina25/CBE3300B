@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arduino Code Repository</title>
+    <title>Arduino Setup & Code</title>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,23 +13,53 @@
 
     <!-- Header -->
     <header class="text-center py-5" style="background-color: #1e6f5c; color: white;">
-        <h1>🤖 Arduino Code Repository</h1>
-        <p>Collection of Arduino codes used in this project.</p>
-        <a href="index.html" class="btn btn-outline-light">🔙 Back to Main Page</a>
+        <h1>🤖 Arduino Setup & Code</h1>
+        <p>Documentation and code for Arduino setup in CBE3300B.</p>
+        <a href="milestone2.html" class="btn btn-outline-light">🔙 Back to Milestone 2</a>
     </header>
 
-    <!-- Arduino Code List -->
+    <!-- Arduino Setup Instructions -->
     <section class="container py-5">
-        <h2 class="text-primary">📂 Available Arduino Codes</h2>
+        <h2 class="text-primary">📌 Setup Instructions</h2>
+        <ul>
+            <li><strong>Download Arduino Mbed OS Edge Boards:</strong> Go to boards, search for it, and install.</li>
+            <li><strong>Edit the Library:</strong> Search for **Arduino Giga Display**, click install, and select **Install All**.</li>
+            <li><strong>Change the board to:</strong> Arduino Giga R1.</li>
+            <li><strong>Test Board Connection:</strong> Upload the **RGB LED Test** example.</li>
+            <li><strong>Test the Touch Screen:</strong>
+                <ul>
+                    <li>Use <code>Touch_IRQ</code> (triggers an action when touched).</li>
+                    <li><strong>We are NOT using:</strong> <code>Touch_polling</code> (which constantly asks for a touch event).</li>
+                </ul>
+            </li>
+            <li><strong>Test LCD Screen:</strong>
+                <ul>
+                    <li>Using **Arduino Logo Example**, displays an image on the screen.</li>
+                    <li>Using **Arduino Logo Drawing**, recreates the image using primitives (circles & rectangles).</li>
+                    <li>Using **LVG Demo**, shows an interactive UI (buttons, clickers, drag bars, loading bar).</li>
+                </ul>
+            </li>
+            <li><strong>Convert an Image to C Array:</strong> Use **BinaryRGB565** format and adjust the size before converting.</li>
+        </ul>
+
+        <div class="text-center">
+            <img src="images/arduino_board.jpg" alt="Arduino Board Setup" class="img-fluid rounded" style="max-width: 600px;">
+            <p class="text-muted">Arduino Giga R1 connected for testing.</p>
+        </div>
+    </section>
+
+    <!-- Arduino Code Downloads -->
+    <section class="container py-5">
+        <h2 class="text-primary">📂 Download Arduino Code</h2>
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="arduino_codes/example_code.ino" download>📄 example_code.ino</a>
+                <a href="arduino_codes/Simple_RGB.ino" download>📄 Simple RGB Code</a>
             </li>
             <li class="list-group-item">
-                <a href="arduino_codes/display_test.ino" download>📄 display_test.ino</a>
+                <a href="arduino_codes/Touch_IRQ.ino" download>📄 Touch Screen IRQ</a>
             </li>
             <li class="list-group-item">
-                <a href="arduino_codes/microcontroller_control.ino" download>📄 microcontroller_control.ino</a>
+                <a href="arduino_codes/LCD_Test.ino" download>📄 LCD Test</a>
             </li>
         </ul>
     </section>
@@ -39,3 +71,4 @@
 
 </body>
 </html>
+
