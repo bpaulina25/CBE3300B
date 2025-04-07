@@ -24,18 +24,6 @@
     <div class="container py-5">
         <ul class="nav nav-tabs" id="setupTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="display-tab" data-bs-toggle="tab" data-bs-target="#display" type="button" role="tab">🖥️ Display Setup</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="potentiostat-tab" data-bs-toggle="tab" data-bs-target="#potentiostat" type="button" role="tab">🔬 Potentiostat Setup</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="microcontroller-tab" data-bs-toggle="tab" data-bs-target="#microcontroller" type="button" role="tab">🖧 Microcontroller Setup</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="project-design-tab" data-bs-toggle="tab" data-bs-target="#project-design" type="button" role="tab">📊 Project Design</button>
-            </li>
-            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="cad-tab" data-bs-toggle="tab" data-bs-target="#cad" type="button" role="tab">🧩 CAD Files</button>
             </li>
             <li class="nav-item" role="presentation">
@@ -47,65 +35,6 @@
         </ul>
 
         <div class="tab-content" id="setupTabsContent">
-            <!-- Display Setup -->
-            <div class="tab-pane fade show active" id="display" role="tabpanel">
-                <h3>🖥️ Display Setup</h3>
-                <p>Updates on setting up the display.</p>
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">📌 Update</h5>
-                        <p class="card-text">Connected the display to the microcontroller and successfully ran a test program to show text output.</p>
-                        <img src="images/display_setup_example.jpg" alt="Display Setup Example" class="img-fluid">
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">📌 Update</h5>
-                        <p class="card-text">Refined text formatting and brightness control for the display.</p>
-                        <img src="images/display_setup_example.jpg" alt="Display Setup Example" class="img-fluid">
-                    </div>
-                </div>
-
-                <p>
-                    <a href="arduino.html" class="btn btn-primary">🤖 View Arduino Setup & Code</a>
-                </p>
-            </div>
-
-            <!-- Potentiostat Setup -->
-            <div class="tab-pane fade" id="potentiostat" role="tabpanel">
-                <h3>🔬 Potentiostat Setup</h3>
-                <p>Updates on setting up the potentiostat.</p>
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">📌 Update</h5>
-                        <p class="card-text">
-                            The potentiostat code has been updated to work with the <strong>Arduino Giga R1 WiFi</strong> instead of the Arduino Uno. Changes include adjusting PWM settings, ADC conversion formulas, and serial communication. Current readings are being debugged.
-                        </p>
-                        <ul>
-                            <li><a href="sandbox:/mnt/data/sketch_potentiostat_gigaR1..ino" class="btn btn-outline-primary">📥 Arduino Sketch</a></li>
-                            <li><a href="sandbox:/mnt/data/potentiostat_sketch_gigaR1.pde" class="btn btn-outline-primary">📥 Processing Code</a></li>
-                        </ul>
-                        <img src="images/potentiostat_setup_example.jpg" alt="Potentiostat Setup Example" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Microcontroller Setup -->
-            <div class="tab-pane fade" id="microcontroller" role="tabpanel">
-                <h3>🖧 Microcontroller Setup</h3>
-                <p>Updates on setting up the microcontroller.</p>
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">📌 Update</h5>
-                        <p class="card-text">Describe what was done for the microcontroller setup.</p>
-                        <img src="images/microcontroller_setup_example.jpg" alt="Microcontroller Setup Example" class="img-fluid">
-                    </div>
-                </div>
-            </div>
 
             <!-- Project Design -->
             <div class="tab-pane fade" id="project-design" role="tabpanel">
@@ -114,22 +43,29 @@
                 <a href="SweeTech_ Glucometer Development Plan.pdf" target="_blank" class="btn btn-success">📄 View Presentation</a>
             </div>
 
-            <!-- CAD Files -->
-            <div class="tab-pane fade" id="cad" role="tabpanel">
-                <h3>🧩 CAD Files</h3>
-                <p><strong>Designed by Theertha.</strong> This section contains CAD resources for 3D-printed and laser-cut components.</p>
-                <p>📎 Reference: 
-                    <a href="https://cbe3300bhandsondesign.slack.com/archives/C08BGNKG3ED/p1744042403749039" target="_blank">Slack update</a>
-                </p>
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">📌 Update</h5>
-                        <p class="card-text">The enclosure was designed with cutouts for USB access, display mounting, and airflow. Optimized for 3D printing.</p>
-                        <a href="downloads/enclosure_design.stl" class="btn btn-outline-primary">📥 Download STL File</a>
-                        <img src="images/cad_example.jpg" alt="CAD Design Example" class="img-fluid mt-3">
-                    </div>
-                </div>
-            </div>
+           <!-- CAD Files -->
+<div class="tab-pane fade" id="cad" role="tabpanel">
+    <h3>🧩 CAD Files</h3>
+    <p><strong>Designed by Theertha.</strong> This section contains finalized CAD files for 3D-printed components of the enclosure.</p>
+    <p>📎 Reference: 
+        <a href="https://cbe3300bhandsondesign.slack.com/archives/C08BGNKG3ED/p1744042403749039" target="_blank">Slack update</a>
+    </p>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">📌 Final Enclosure Files</h5>
+            <p class="card-text">
+                The enclosure is split into two interlocking pieces: a top and a bottom, both designed for optimal printability and function. Files are available in <code>.gcode.3mf</code> format and ready for fabrication.
+            </p>
+            <ul>
+                <li><a href="https://github.com/YOUR_REPO_PATH/Top.gcode.3mf" class="btn btn-outline-primary" target="_blank">⬆️ Top.gcode.3mf</a></li>
+                <li><a href="https://github.com/YOUR_REPO_PATH/Bottom.gcode.3mf" class="btn btn-outline-primary" target="_blank">⬇️ Bottom.gcode.3mf</a></li>
+            </ul>
+            <img src="images/cad_example.jpg" alt="CAD Enclosure Example" class="img-fluid mt-3">
+        </div>
+    </div>
+</div>
+
 
             <!-- IO Rodeostat -->
             <div class="tab-pane fade" id="iorodeostat" role="tabpanel">
