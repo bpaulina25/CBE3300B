@@ -58,9 +58,9 @@
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="Milestone4.html" target="_blank">
+                <button class="nav-link active" id="milestone4-tab" data-bs-toggle="tab" data-bs-target="#milestone4" type="button" role="tab" aria-controls="milestone4" aria-selected="true">
                     🎯 Milestone 4
-                </a>
+                </button>
             </li>
         </ul>
 
@@ -79,6 +79,147 @@
                         📈 Presentation Proposal (PDF)
                     </a>
                 </p>
+            </div>
+
+            <!-- Milestone 4 Content -->
+            <div class="tab-pane fade show active" id="milestone4" role="tabpanel" aria-labelledby="milestone4-tab">
+  <h3>📡 Milestone 4: Arduino GIGA + Python CSV Integration</h3>
+  <p>Test setup for serial communication between Python and the Arduino GIGA to display CSV values on-screen.</p>
+
+  <div class="mb-3">
+    <a href="arduino_codes/MVP%20codes/LVGLDemo_copy_20250416132112_copy_202504171_copy_20250417170104.ino" class="btn btn-primary" target="_blank">🔗 View Arduino Code</a>
+    <a href="arduino_codes/MVP%20codes/python_glucose_send_to_arduino_apr16.py" class="btn btn-secondary" target="_blank">🐍 Python (Apr 16 Integration)</a>
+    <a href="arduino_codes/MVP%20codes/send_csv_value.py" class="btn btn-secondary" target="_blank">🐍 Python (First CSV Test)</a>
+  </div>
+
+  <h4>✅ 1. Prepare Arduino</h4>
+  <ul>
+    <li>Select your GIGA’s port (Paulina’s Mac: <code>/dev/tty.usbmodem1101</code>).</li>
+    <li>Click <strong>Upload</strong>.</li>
+    <li><strong>⚠️ Do NOT open the Serial Monitor after uploading.</strong></li>
+  </ul>
+
+  <h4>✅ 2. In Terminal</h4>
+  <ul>
+    <li>Open terminal</li>
+    <li><code>cd ~/Documents</code></li>
+    <li><code>python python_glucose_send_to_arduino_apr16.py</code></li>
+  </ul>
+  <p><strong>⚠️ Make sure the Python code has:</strong></p>
+  <ul>
+    <li>Potentiostat port: <code>dev = Potentiostat('/dev/tty.usbmodem101')</code></li>
+    <li>Arduino port: <code>send_to_arduino(value, port="/dev/tty.usbmodem1101", baudrate=115200)</code></li>
+  </ul>
+
+  <h5>✅ Success Looks Like…</h5>
+  <pre><code>📄 CSV value: 42.7
+✔️ Sent to Arduino: 42.7</code></pre>
+  <p>The display will now show the concentration.</p>
+  <p><strong>Next steps:</strong> Make it update every <code>x</code> amount of time so we can do several readings.</p>
+
+  <hr>
+  <h4>🔬 FIRST TEST</h4>
+
+  <h5>✅ 1. Prepare Arduino</h5>
+  <ul>
+    <li>Select your GIGA’s port (e.g. <code>/dev/tty.usbmodem1101</code>).</li>
+    <li>Click <strong>Upload</strong>.</li>
+    <li><strong>⚠️ Do NOT open the Serial Monitor after uploading.</strong></li>
+  </ul>
+
+  <h5>✅ 2. Create your CSV File</h5>
+  <ul>
+    <li>Create a file named: <code>Reading_to_GIGA.csv</code></li>
+    <li>Add one number (e.g. <code>42.7</code>) and save it.</li>
+    <li>Place it in a known folder like your Desktop.</li>
+  </ul>
+
+  <h5>✅ 3. Create the Python Script</h5>
+  <ol>
+    <li>Open TextEdit, VS Code, or any plain text editor.</li>
+    <li>Paste the following code and save it as <code>send_csv_value.py</code> in the same folder as your CSV:</li>
+  </ol>
+  <pre><code>import serial
+import time
+
+CSV_FILE = "Reading_to_GIGA.csv"
+SERIAL_PORT = "/dev/tty.usbmodem1101"
+BAUD_RATE = 115200
+
+def read_first_value_from_csv():
+    try:
+        with open(CSV_FILE, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    return line
+    except FileNotFoundError:
+        print(f"❌ File not found: {CSV_FILE}")
+    return None
+
+def send_to_arduino(value):
+    try:
+        with serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=2) as ser:
+            time.sleep(2)
+            ser.write((value + '
+').encode())
+            print(f"✔️ Sent to Arduino: {value}")
+    except serial.SerialException as e:
+        print(f"⚠️ Serial error: {e}")
+
+def main():
+    value = read_first_value_from_csv()
+    if value:
+        print(f"📄 CSV value: {value}")
+        send_to_arduino(value)
+    else:
+        print("❌ No valid value found in CSV.")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+  <h5>✅ 4. Use Terminal to Run It</h5>
+  <ul>
+    <li>Open Terminal and run: <code>cd ~/Documents</code></li>
+    <li>(Optional, if needed for permissions): <code>sudo chmod a+rw /dev/tty.usbmodem1101</code></li>
+    <li>Then run the script: <code>python send_csv_value.py</code></li>
+  </ul>
+
+  <p><strong>✅ You Should See:</strong></p>
+  <pre><code>📄 CSV value: 42.7
+✔️ Sent to Arduino: 42.7</code></pre>
+
+  <h5>🔁 To Repeat:</h5>
+  <ol>
+    <li>Change the number in <code>Reading_to_GIGA.csv</code></li>
+    <li>Save the file</li>
+    <li>Run: <code>python send_csv_value.py</code> again</li>
+  </ol>
+
+  <p>🎉 You're all set! Let me know if you'd like to auto-refresh, add sensor input, or expand functionality!</p>
+</div>
+                <h4>✅ 1. Prepare Arduino</h4>
+                <ul>
+                    <li>Select your GIGA’s port (e.g. <code>/dev/tty.usbmodem1101</code> on Paulina’s Mac).</li>
+                    <li>Click <strong>Upload</strong>.</li>
+                    <li><strong>⚠️ Do NOT open Serial Monitor after uploading.</strong></li>
+                </ul>
+                <h4>✅ 2. In Terminal (Apr 16 Integration)</h4>
+                <ul>
+                    <li>Open terminal</li>
+                    <li><code>cd ~/Documents</code></li>
+                    <li><code>python python_glucose_send_to_arduino_apr16.py</code></li>
+                </ul>
+                <p><strong>Ensure:</strong></p>
+                <ul>
+                    <li>Correct potentiostat port: <code>dev = Potentiostat('/dev/tty.usbmodem101')</code></li>
+                    <li>Correct Arduino port: <code>send_to_arduino(value, port="/dev/tty.usbmodem1101")</code></li>
+                </ul>
+                <p><strong>✅ Success looks like:</strong></p>
+                <pre><code>📄 CSV value: 42.7
+✔️ Sent to Arduino: 42.7</code></pre>
+                <p>The display will now show the concentration.</p>
+                <p><strong>Next Steps:</strong> Make it update every <code>x</code> amount of time to allow several readings.</p>
             </div>
         </div>
     </section>
