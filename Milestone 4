@@ -1,5 +1,5 @@
 <div class="tab-pane fade show active" id="milestone3" role="tabpanel">
-  <h3>📡 Milestone 3: Arduino + Python CSV Integration</h3>
+  <h3>📡 Milestone 4: MVP + Arduino + Python CSV Integration</h3>
   <p>Test setup for serial communication between Python and the Arduino GIGA to display CSV values on-screen.</p>
 
   <div class="mb-3">
