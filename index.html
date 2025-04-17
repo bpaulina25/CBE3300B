@@ -53,14 +53,14 @@
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="milestone3-tab" data-bs-toggle="tab" data-bs-target="#milestone3" type="button" role="tab" aria-controls="milestone3" aria-selected="false">
+                <a class="nav-link" href="milestone3.html" target="_blank">
                     🔬 Milestone 3
-                </button>
+                </a>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="milestone4-tab" data-bs-toggle="tab" data-bs-target="#milestone4" type="button" role="tab" aria-controls="milestone4" aria-selected="true">
+                <a class="nav-link active" href="Milestone4.html" target="_blank">
                     🎯 Milestone 4
-                </button>
+                </a>
             </li>
         </ul>
 
@@ -78,52 +78,6 @@
                     <a href="Potentiostat-Based%20Glucometer%20Proposal.pdf" target="_blank" class="btn btn-success">
                         📈 Presentation Proposal (PDF)
                     </a>
-                </p>
-            </div>
-
-            <!-- Milestone 3 Content -->
-            <div class="tab-pane fade" id="milestone3" role="tabpanel" aria-labelledby="milestone3-tab">
-                <h3>🔬 Milestone 3: Testing & Refinement</h3>
-                <p>Details for Milestone 3 will be added here.</p>
-            </div>
-
-            <!-- Milestone 4 Content -->
-            <div class="tab-pane fade show active" id="milestone4" role="tabpanel" aria-labelledby="milestone4-tab">
-                <h3>📡 Milestone 4: MVP + Arduino + Python CSV Integration</h3>
-                <p>Test setup for serial communication between Python and the Arduino GIGA to display CSV values on-screen.</p>
-                <div class="mb-3">
-                    <a href="arduino_codes/MVP%20codes/LVGLDemo_copy_20250416132112_copy_202504171_copy_20250417170104.ino" class="btn btn-primary" target="_blank">🔗 View Arduino Code</a>
-                    <a href="arduino_codes/MVP%20codes/python_glucose_send_to_arduino_apr16.py" class="btn btn-secondary" target="_blank">🐍 Python (Apr 16 Integration)</a>
-                    <a href="arduino_codes/MVP%20codes/send_csv_value.py" class="btn btn-secondary" target="_blank">🐍 Python (First CSV Test)</a>
-                </div>
-                <h4>✅ 1. Prepare Arduino</h4>
-                <ul>
-                    <li>Select your GIGA’s port (e.g. <code>/dev/tty.usbmodem1101</code> on Paulina’s Mac).</li>
-                    <li>Click <strong>Upload</strong>.</li>
-                    <li><strong>⚠️ Do NOT open Serial Monitor after uploading.</strong></li>
-                </ul>
-                <h4>✅ 2. In Terminal (Apr 16 Integration)</h4>
-                <ul>
-                    <li>Open terminal</li>
-                    <li><code>cd ~/Documents</code></li>
-                    <li><code>python python_glucose_send_to_arduino_apr16.py</code></li>
-                </ul>
-                <p><strong>Ensure:</strong></p>
-                <ul>
-                    <li>Correct potentiostat port: <code>dev = Potentiostat('/dev/tty.usbmodem101')</code></li>
-                    <li>Correct Arduino port: <code>send_to_arduino(value, port="/dev/tty.usbmodem1101")</code></li>
-                </ul>
-                <p><strong>✅ Success looks like:</strong></p>
-                <div class="alert alert-success" role="alert">
-                  📄 CSV value: 42.7<br>
-                  ✔️ Sent to Arduino: 42.7
-                </div>
-                <p>The display will now show the concentration.</p>
-                <p><strong>Next Steps:</strong> Make it update every <code>x</code> amount of time to allow several readings.</p>
-                <p>
-                  <a href="index.html#milestone4" class="btn btn-outline-dark mt-4">
-                    ⬅️ Back to Project Hub
-                  </a>
                 </p>
             </div>
         </div>
