@@ -38,71 +38,91 @@
         </p>
     </section>
 
-<!-- Milestones Section -->
-<section id="milestones" class="container py-5">
-    <h2 class="text-primary">Project Milestones</h2>
-    <ul class="nav nav-tabs" id="milestoneTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="milestone1-tab" data-bs-toggle="tab" data-bs-target="#milestone1" type="button" role="tab" aria-controls="milestone1" aria-selected="true">
-                🏁 Milestone 1
-            </button>
-        </li>
+    <!-- Milestones Section -->
+    <section id="milestones" class="container py-5">
+        <h2 class="text-primary">Project Milestones</h2>
+        <ul class="nav nav-tabs" id="milestoneTabs" role="tablist">
             <li class="nav-item" role="presentation">
-            <a class="nav-link" href="milestone2.html" target="_blank">
-            🚀 Milestone 2
-            </a>
-        </li>
+                <button class="nav-link" id="milestone1-tab" data-bs-toggle="tab" data-bs-target="#milestone1" type="button" role="tab" aria-controls="milestone1" aria-selected="false">
+                    🏁 Milestone 1
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" href="milestone2.html" target="_blank">
+                    🚀 Milestone 2
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="milestone3-tab" data-bs-toggle="tab" data-bs-target="#milestone3" type="button" role="tab" aria-controls="milestone3" aria-selected="false">
+                    🔬 Milestone 3
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="milestone4-tab" data-bs-toggle="tab" data-bs-target="#milestone4" type="button" role="tab" aria-controls="milestone4" aria-selected="true">
+                    🎯 Milestone 4
+                </button>
+            </li>
+        </ul>
 
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="milestone3-tab" data-bs-toggle="tab" data-bs-target="#milestone3" type="button" role="tab" aria-controls="milestone3" aria-selected="false">
-                <a class="nav-link" href="milestone3.html" target="_blank">
-                🔬 Milestone 3
-            </button>
-        <li class="nav-item">
-          <a class="nav-link" id="milestone4-tab" data-bs-toggle="tab" href="#milestone4" role="tab" aria-controls="milestone4" aria-selected="false">Milestone 4</a>
-            🎯 Milestone 4
-            </button>
-        </li>
-    </ul>
-    
-    <div class="tab-content" id="milestoneTabsContent">
-        <!-- Milestone 1 Content -->
-        <div class="tab-pane fade show active" id="milestone1" role="tabpanel" aria-labelledby="milestone1-tab">
-            <h3>🏁 Milestone 1: Project Proposal</h3>
-            <p>The proposal details the development of a potentiostat-based glucometer.</p>
-            <p><strong>Materials:</strong> Glucose test strips, IO Rodeostat, Arduino components, power supply, and microcontroller.</p>
-            <p><strong>Status:</strong> Research and prototype development in progress.</p>
-           <p><a href="proposal.html" target="_blank" class="btn btn-primary"> 📄 View Full Proposal</a></p>
-            <p>
-    <a href="Potentiostat-Based%20Glucometer%20Proposal.pdf" target="_blank" class="btn btn-success">
-        📈 Presentation Proposal (PDF)
-    </a>
-            </p>
+        <div class="tab-content" id="milestoneTabsContent">
+            <!-- Milestone 1 Content -->
+            <div class="tab-pane fade" id="milestone1" role="tabpanel" aria-labelledby="milestone1-tab">
+                <h3>🏁 Milestone 1: Project Proposal</h3>
+                <p>The proposal details the development of a potentiostat-based glucometer.</p>
+                <p><strong>Materials:</strong> Glucose test strips, IO Rodeostat, Arduino components, power supply, and microcontroller.</p>
+                <p><strong>Status:</strong> Research and prototype development in progress.</p>
+                <p>
+                    <a href="proposal.html" target="_blank" class="btn btn-primary">
+                        📄 View Full Proposal
+                    </a>
+                    <a href="Potentiostat-Based%20Glucometer%20Proposal.pdf" target="_blank" class="btn btn-success">
+                        📈 Presentation Proposal (PDF)
+                    </a>
+                </p>
+            </div>
+
+            <!-- Milestone 3 Content -->
+            <div class="tab-pane fade" id="milestone3" role="tabpanel" aria-labelledby="milestone3-tab">
+                <h3>🔬 Milestone 3: Testing & Refinement</h3>
+                <p>Details for Milestone 3 will be added here.</p>
+            </div>
+
+            <!-- Milestone 4 Content -->
+            <div class="tab-pane fade show active" id="milestone4" role="tabpanel" aria-labelledby="milestone4-tab">
+                <h3>🌟 Milestone 4: Arduino + Python CSV Integration</h3>
+                <p>Test setup for serial communication between Python and the Arduino GIGA to display CSV values on-screen.</p>
+                <div class="mb-3">
+                    <a href="path/to/arduino_code.ino" class="btn btn-primary" target="_blank">🔗 View Arduino Code</a>
+                    <a href="path/to/python_apr16.py" class="btn btn-secondary" target="_blank">🐍 Python (Apr 16 Integration)</a>
+                    <a href="path/to/send_csv_value.py" class="btn btn-secondary" target="_blank">🐍 Python (First CSV Test)</a>
+                </div>
+                <h4>✅ 1. Prepare Arduino</h4>
+                <ul>
+                    <li>Select your GIGA’s port (e.g. <code>/dev/tty.usbmodem1101</code> on Paulina’s Mac).</li>
+                    <li>Click <strong>Upload</strong>.</li>
+                    <li><strong>⚠️ Do NOT open Serial Monitor after uploading.</strong></li>
+                </ul>
+                <h4>✅ 2. In Terminal (Apr 16 Integration)</h4>
+                <ul>
+                    <li>Open terminal</li>
+                    <li><code>cd ~/Documents</code></li>
+                    <li><code>python python_glucose_send_to_arduino_apr16.py</code></li>
+                </ul>
+                <p><strong>Ensure:</strong></p>
+                <ul>
+                    <li>Correct potentiostat port: <code>dev = Potentiostat('/dev/tty.usbmodem101')</code></li>
+                    <li>Correct Arduino port: <code>send_to_arduino(value, port="/dev/tty.usbmodem1101")</code></li>
+                </ul>
+                <p><strong>✅ Success looks like:</strong></p>
+                <pre><code>📄 CSV value: 42.7
+✔️ Sent to Arduino: 42.7</code></pre>
+                <p>The display will now show the concentration.</p>
+                <p><strong>Next Steps:</strong> Make it update every <code>x</code> amount of time to allow several readings.</p>
+            </div>
         </div>
-
-        <!-- Milestone 2 Content -->
-        <div class="tab-pane fade" id="milestone2" role="tabpanel" aria-labelledby="milestone2-tab">
-            <h3>🚀 Milestone 2: Initial Prototyping</h3>
-            <p>Details for Milestone 2 will be added here.</p>
-            <p>
-            <a href="arduino.html" class="btn btn-primary">🤖 View Arduino Code</a>
-            </p>
-
-        </div>
-
-        <!-- Milestone 3 Content -->
-        <div class="tab-pane fade" id="milestone3" role="tabpanel" aria-labelledby="milestone3-tab">
-            <h3>🔬 Milestone 3: Testing & Refinement</h3>
-            <p>Details for Milestone 3 will be added here.</p>
-        </div>
-
-        <!-- Milestone 4 Content -->
-        <div class="tab-pane fade" id="milestone4" role="tabpanel" aria-labelledby="milestone4-tab">
-            <h3>🎯 Milestone 4: Final Presentation</h3>
-            <p>Details for Milestone 4 will be added here.</p>
-        </div>
-    </div>
-</section>
+    </section>
+</body>
+</html>
 
 
 
