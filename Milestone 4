@@ -3,9 +3,9 @@
   <p>Test setup for serial communication between Python and the Arduino GIGA to display CSV values on-screen.</p>
 
   <div class="mb-3">
-    <a href="path/to/arduino_code.ino" class="btn btn-primary" target="_blank">🔗 View Arduino Code</a>
-    <a href="path/to/python_apr16.py" class="btn btn-secondary" target="_blank">🐍 Python (Apr 16 Integration)</a>
-    <a href="path/to/send_csv_value.py" class="btn btn-secondary" target="_blank">🐍 Python (First CSV Test)</a>
+    <a href="arduino_codes/MVP codes/LVGLDemo_copy_20250416132112_copy_202504171_copy_20250417170104.ino" class="btn btn-primary" target="_blank">🔗 View Arduino Code</a>
+    <a href="arduino_codes/MVP codes/python_glucose_send_to_arduino_apr16.py" class="btn btn-secondary" target="_blank">🐍 Python (Apr 16 Integration)</a>
+    <a href="arduino_codes/MVP codes/send_csv_value.py" class="btn btn-secondary" target="_blank">🐍 Python (First CSV Test)</a>
   </div>
 
   <h4>✅ 1. Prepare Arduino</h4>
