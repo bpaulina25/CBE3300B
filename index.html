@@ -282,62 +282,35 @@ if __name__ == "__main__":
             <img src="Images/CEG_sort_of.png" alt="Clarke Error Grid" class="img-fluid my-3" />
         
     <h5 class="mt-4">Data Analysis Pseudocode</h5>
-    <ol>
-      <li>
-        Load raw chronoamperometry data from Excel/CSV (via Rodeostat) into a DataFrame.
-        <ul>
-          <li>Extract time, voltage, and current traces.</li>
-          <li>Filter to select current data once step is applied.</li>
-        </ul>
-      </li>
-    
-      <li>
-        Determine if system exhibits Cottrell behavior and when it begins. This confirms whether the quiet time and step potential settings allow proper diffusion-limited response.
-        <ul>
-          <li>Slide a regression window across current vs 1/√t.</li>
-          <li>Evaluate R² for each segment.</li>
-          <li>Identify the window with the highest R² → diffusion-controlled current.</li>
-        </ul>
-        <strong>Outcome:</strong>
-        <ul>
-          <li>Confirms the best time region for linear fitting.</li>
-          <li>Helps validate if the signal shape is consistent across samples.</li>
-          <li>Indicates if quiet time needs tuning.</li>
-        </ul>
-      </li>
-    
-      <li>
-        Evaluate the Cottrell region of entire data set.
-        <ul>
-          <li>Slice each dataset using the optimal time window found earlier (or use fixed indices).</li>
-          <li>Recalculate 1/√t vs current (smoothed) and fit a linear regression.</li>
-        </ul>
-      </li>
-    
-      <li>
-        Determine most appropriate calibration curve form
-        <ul>
-          <li>Fit either a linear or a second-order polynomial model.</li>
-          <li>Plot calibration line with ±15 mg/dL or ±15% ISO error margins.</li>
-          <li>Return regression parameters and R².</li>
-        </ul>
-        <p class="mt-2">Test two linear calibration equations for two different concentration regimes:</p>
-        <ul>
-          <li>Automatically detect a breakpoint.</li>
-          <li>Fit two independent linear models for low and high concentrations.</li>
-          <li>Ensure continuous intersection at slope threshold.</li>
-          <li>Plot piecewise curve with ISO bounds and R² for both segments.</li>
-        </ul>
-        <p><strong>Conclusion:</strong> A piecewise linear model better captures low vs high glucose behavior.</p>
-      </li>
-    
-      <li>
-        Validate glucometer performance.
-        <ul>
-          <li>Plot the data in a Clarke Error Grid to assess diagnostic implications of current glucometer function.</li>
-        </ul>
-      </li>
-    </ol>
+  <ol>
+    <li>
+      Load raw chronoamperometry data from Excel/CSV into a DataFrame.
+      <ul>
+        <li>Extract time, voltage, and current traces.</li>
+        <li>Filter current data once the step is applied.</li>
+      </ul>
+    </li>
+    <li>
+      Confirm if Cottrell behavior appears (diffusion-limited regime).
+      <ul>
+        <li>Slide a regression window over current vs 1/√t.</li>
+        <li>Identify the region with highest R².</li>
+      </ul>
+    </li>
+    <li>
+      Extract Cottrell region and fit a linear regression to calculate slope.
+    </li>
+    <li>
+      Choose a calibration model.
+      <ul>
+        <li>Compare linear vs polynomial models.</li>
+        <li>Try a piecewise model to separate low vs high glucose regimes.</li>
+      </ul>
+    </li>
+    <li>
+      Validate performance using the Clarke Error Grid for diagnostic implications.
+    </li>
+  </ol>
           </div>
         </div>
    <!-- Kayla's stuff ends here (checking for formatting stuff) -->    
