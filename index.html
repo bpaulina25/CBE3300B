@@ -62,6 +62,19 @@
                     🎯 Milestone 4
                 </button>
             </li>
+            <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="milestone4-pot-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#milestone4-pot"
+                    type="button"
+                    role="tab"
+                    aria-controls="milestone4-pot"
+                    aria-selected="false">
+                    Milestone 4: Potentiostat
+                  </button>
+                </li>
         </ul>
 
         <div class="tab-content" id="milestoneTabsContent">
@@ -221,7 +234,125 @@ if __name__ == "__main__":
                 <p>The display will now show the concentration.</p>
                 <p><strong>Next Steps:</strong> Make it update every <code>x</code> amount of time to allow several readings.</p>
             </div>
+
+
+<!-- Kayla's stuff starts here (checking for formatting stuff) -->
+      <div
+        class="tab-pane fade show active"
+        id="milestone4-pot"
+        role="tabpanel"
+        aria-labelledby="milestone4-pot-tab">
+    
+        <h3 class="mt-4">Milestone 4: Potentiostat</h3>
+    
+        <p>We are using the <a href="https://iorodeo.com/products/rodeostat" target="_blank">IO Rodeo Rodeostat</a> as our potentiostat circuit base.</p>
+    
+        <h5 class="mt-4">How to Set Up the IO Rodeostat</h5>
+        <ul>
+          <li>Download <code>potentiostat.py</code> from the IO Rodeo GitHub (version 0.0.9)</li>
+          <li>Follow the setup instructions at <a href="https://iorodeo.github.io/iorodeo-potentiostat-docs-build/installation.html" target="_blank">IO Rodeo Docs</a></li>
+          <li>Customize your code and begin testing</li>
+        </ul>
+    
+            <h5>Methodology</h5>
+            <ol>
+              <li>
+                After 6 second quiet time to allow for the glucose reaction to occur on the test strip, apply a 200 mV constant potential step.
+                <ul>
+                  <li>Optimal quiet time and step potential experimentally validated.</li>
+                </ul>
+              </li>
+              <li>
+                Run the chronoamperometry test for 1 second.
+              </li>
+              <li>
+                Get linear regression of i vs 1/√t and convert the slope to glucose concentration with the calibration function.
+                <ul>
+                  <li>Optimal window for linear regression was experimentally validated.</li>
+                </ul>
+              </li>
+            </ol>
+    
+            <h5 class="mt-4">Calibration</h5>
+            <img src="Images/calibration.png" alt="Calibration Graph" class="img-fluid my-3" />
+    
+            <h5>Clarke Error Grid</h5>
+            <img src="Images/CEG_sort_of.png" alt="Clarke Error Grid" class="img-fluid my-3" />
+        
+    <h5 class="mt-4">Data Analysis Pseudocode</h5>
+    <ol>
+      <li>
+        Load raw chronoamperometry data from Excel/CSV (via Rodeostat) into a DataFrame.
+        <ul>
+          <li>Extract time, voltage, and current traces.</li>
+          <li>Filter to select current data once step is applied.</li>
+        </ul>
+      </li>
+    
+      <li>
+        Determine if system exhibits Cottrell behavior and when it begins. This confirms whether the quiet time and step potential settings allow proper diffusion-limited response.
+        <ul>
+          <li>Slide a regression window across current vs 1/√t.</li>
+          <li>Evaluate R² for each segment.</li>
+          <li>Identify the window with the highest R² → diffusion-controlled current.</li>
+        </ul>
+        <strong>Outcome:</strong>
+        <ul>
+          <li>Confirms the best time region for linear fitting.</li>
+          <li>Helps validate if the signal shape is consistent across samples.</li>
+          <li>Indicates if quiet time needs tuning.</li>
+        </ul>
+      </li>
+    
+      <li>
+        Evaluate the Cottrell region of entire data set.
+        <ul>
+          <li>Slice each dataset using the optimal time window found earlier (or use fixed indices).</li>
+          <li>Recalculate 1/√t vs current (smoothed) and fit a linear regression.</li>
+        </ul>
+      </li>
+    
+      <li>
+        Determine most appropriate calibration curve form
+        <ul>
+          <li>Fit either a linear or a second-order polynomial model.</li>
+          <li>Plot calibration line with ±15 mg/dL or ±15% ISO error margins.</li>
+          <li>Return regression parameters and R².</li>
+        </ul>
+        <p class="mt-2">Test two linear calibration equations for two different concentration regimes:</p>
+        <ul>
+          <li>Automatically detect a breakpoint.</li>
+          <li>Fit two independent linear models for low and high concentrations.</li>
+          <li>Ensure continuous intersection at slope threshold.</li>
+          <li>Plot piecewise curve with ISO bounds and R² for both segments.</li>
+        </ul>
+        <p><strong>Conclusion:</strong> A piecewise linear model better captures low vs high glucose behavior.</p>
+      </li>
+    
+      <li>
+        Validate glucometer performance.
+        <ul>
+          <li>Plot the data in a Clarke Error Grid to assess diagnostic implications of current glucometer function.</li>
+        </ul>
+      </li>
+    </ol>
+    
+            <h5 class="mt-4">Relevant Code Files</h5>
+            <ul>
+              <li>
+                <a href="MVP Codes/milestone 4 code.py" target="_blank">Glucometer-Arduino Code</a>: Code with Arduino GIGA R1 UI integration
+              </li>
+              <li>
+                <a href="MVP Codes/glucometer GUI.py" target="_blank">Glucometer GUI Script</a>: Code for python-only supported glucometer with GUI
+              </li>
+              <li>
+                <a href="MVP Codes/glucometer.py" target="_blank">Glucometer Core Functions</a>: Core functions to run glucometer
+              </li>
+            </ul>
+          </div>
         </div>
+   <!-- Kayla's stuff ends here (checking for formatting stuff) -->    
+    </div>
     </section>
 </body>
 </html>
