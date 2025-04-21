@@ -227,10 +227,35 @@ if __name__ == "__main__":
         <h5 class="mt-4">How to Set Up the IO Rodeostat</h5>
         <ul>
           <li>Download <code>potentiostat.py</code> from the IO Rodeo GitHub (version 0.0.9)</li>
-          <li>Follow the setup instructions at <a href="https://iorodeo.github.io/iorodeo-potentiostat-docs-build/installation.html" target="_blank">IO Rodeo Docs</a></li>
-          <li>Customize your code and begin testing</li>
+          <li>Follow the setup instructions in the <a href="https://iorodeo.github.io/iorodeo-potentiostat-docs-build/installation.html" target="_blank">Installation Guide</a></li>
+          <li>Customize your code and begin testing!</li>
         </ul>
-    
+
+            <h5 class="mt-4">Relevant Code Files</h5>
+            <ul>
+              <li>
+                <a href="MVP Codes/milestone 4 code.py" target="_blank">MVP Rodeostat-Arduino Code</a>: This script runs the Rodeostat and calibration with UI compatibility
+                <br>
+                for the Arduino GIGA R1. <b>Key features:</b> Serial port auto-detection, chronoamperometry execution,
+                <br>
+                signal processing, Arduino communication, and data logging.          
+              </li>
+              <li>
+                <a href="MVP Codes/glucometer GUI.py" target="_blank">Glucometer GUI Script</a>: This script provides a standalone python GUI for those who do not wish to
+                <br>
+                integrate an Arduino display. <b>Key features:</b> Simple button-based control, fetches past glucose
+                <br>
+                readings and daily history.
+              </li>
+              <li>
+                <a href="MVP Codes/glucometer.py" target="_blank">Glucometer Core Functions</a>: This code houses the core functions that run the actual glucometer,
+                <br>
+                supporting both the Arduino-integrated display and the standalone Python GUI. <b>Key features:</b>
+                <br>
+                Modular architecture, error handling.
+              </li>
+            </ul>
+          
             <h5>Methodology</h5>
             <ol>
               <li>
@@ -313,19 +338,6 @@ if __name__ == "__main__":
         </ul>
       </li>
     </ol>
-    
-            <h5 class="mt-4">Relevant Code Files</h5>
-            <ul>
-              <li>
-                <a href="MVP Codes/milestone 4 code.py" target="_blank">Glucometer-Arduino Code</a>: Code with Arduino GIGA R1 UI integration
-              </li>
-              <li>
-                <a href="MVP Codes/glucometer GUI.py" target="_blank">Glucometer GUI Script</a>: Code for python-only supported glucometer with GUI
-              </li>
-              <li>
-                <a href="MVP Codes/glucometer.py" target="_blank">Glucometer Core Functions</a>: Core functions to run glucometer
-              </li>
-            </ul>
           </div>
         </div>
    <!-- Kayla's stuff ends here (checking for formatting stuff) -->    
