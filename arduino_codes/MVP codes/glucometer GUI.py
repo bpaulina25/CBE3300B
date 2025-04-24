@@ -14,7 +14,7 @@ def update_text(msg, color='black'):
 # Buttons
 def on_new_test(event):
     """Display instruction and show OK button."""
-    update_text("Insert test strip and press OK", color='blue')
+    update_text("Insert test strip and press OK")
     ok_button_ax.set_visible(True)
     fig.canvas.draw_idle()
 
@@ -27,7 +27,7 @@ def on_ok(event):
 def on_history(event):
     """Display today's average glucose."""
     avg = get_daily_average()
-    update_text(f"Today's Avg: {avg} mg/dL", color='purple')
+    update_text(f"Today's Avg: {avg} mg/dL")
 
 def on_exit(event):
     """Close the GUI window."""
@@ -40,6 +40,7 @@ def run_glucose_test():
             update_text(f"Starting test in {i}...")
             time.sleep(1)
 
+        update_text(f"Running test")
         result = run_glucometer()
         update_text(f"{result} mg/dL")
 
