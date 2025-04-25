@@ -6,7 +6,7 @@ from glucometer import run_glucometer, get_daily_average
 
 # Text
 def update_text(msg, color='black'):
-    """Status text functio."""
+    """Status text function."""
     status_text.set_text(msg)
     status_text.set_color(color)
     fig.canvas.draw_idle()
@@ -16,10 +16,20 @@ def on_new_test(event):
     """Display instruction and show OK button."""
     update_text("Insert test strip and press OK")
     ok_button_ax.set_visible(True)
+    
+    # Recreate the OK button and reconnect handler
+    global ok_button  # So it doesn't get garbage-collected
+    ok_button = Button(ok_button_ax, "OK")
+    ok_button.on_clicked(on_ok)
+
     fig.canvas.draw_idle()
+    #print("New test started. OK button should be visible and clickable.")
+
+
 
 def on_ok(event):
     """Run the glucose test."""
+    #print("OK button pressed")
     ok_button_ax.set_visible(False)
     fig.canvas.draw_idle()
     threading.Thread(target=run_glucose_test).start()  # Run test in background thread
@@ -39,7 +49,7 @@ def run_glucose_test():
         for i in range(5, 0, -1):
             update_text(f"Starting test in {i}...")
             time.sleep(1)
-
+        
         update_text(f"Running test")
         result = run_glucometer()
         update_text(f"{result} mg/dL")
