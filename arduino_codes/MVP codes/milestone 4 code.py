@@ -189,13 +189,4 @@ if __name__ == '__main__':
     reading = run_calibration(t_all, volt_all, curr_all)
 
     # Save values
-    #df = pd.DataFrame([[reading]])
-    #df.to_csv("Reading_to_GIGA.csv", index=False, header=False)
-    #save_reading(reading)
-
-    # Send final reading to Arduino GIGA
-    #send_to_arduino(reading, port="/dev/tty.usbmodem1101")
-    #send_to_arduino(reading, port="COM3")
-    #send_to_arduino(reading, port=giga_port)
-
     save_and_send_data(reading, giga_port)
