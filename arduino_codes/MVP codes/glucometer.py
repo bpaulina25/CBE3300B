@@ -5,7 +5,6 @@ from datetime import datetime
 from potentiostat import Potentiostat
 from scipy.signal import savgol_filter
 import scipy.stats as stats
-#import time
 import os
 from openpyxl import load_workbook
 from serial.tools import list_ports
@@ -29,6 +28,16 @@ def get_port():
         print(f"  {port.device} - {port.description} - {port.hwid}")
 
     return rodeo_port
+
+# Global device setup
+rodeo_port = get_port()
+dev = None
+if rodeo_port:
+    dev = Potentiostat(rodeo_port)
+    dev.set_auto_connect(True)
+    dev.set_curr_range('1000uA')
+    dev.set_sample_period(10)
+
 
 def append_df_to_excel(filename, df, sheet_name='Sheet1'):
     
@@ -143,16 +152,13 @@ def get_daily_average(filename="Blood Sugar History.xlsx", sheet_name="Log"):
         return f"Error: {e}"
 
 def run_glucometer():
-    rodeo_port = get_port()
+    global dev
+    if dev is None:
+        raise RuntimeError("Potentiostat not initialized.")
     
     if not rodeo_port:
         raise RuntimeError("Rodeostat not connected.")
 
-    # Setup Rodeostat
-    dev = Potentiostat(rodeo_port)
-    dev.set_curr_range('1000uA')
-    dev.set_sample_period(10)
-    dev.set_auto_connect(True)
     name = 'chronoamp'
     test_param = {
         'quietValue': 0.0,
@@ -160,11 +166,13 @@ def run_glucometer():
         'step': [(1000, 0.200)],
     }
     dev.set_param(name, test_param)
+    print("Parameters set")
 
     # Run CA test
     t_all, volt_all, curr_all = run_amperometry(dev, name)
 
     # Calibrate
     reading = run_calibration(t_all, volt_all, curr_all)
+    print(f"Calibrated reading: {reading}")
 
     return int(round(reading))
