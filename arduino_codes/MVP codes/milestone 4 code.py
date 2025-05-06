@@ -177,16 +177,28 @@ if __name__ == '__main__':
     
     dev.set_param(name, test_param)
     
-    n = 5
-    for i in range(n, 0, -1):
-        print(f"Running test in {i}...", end='\r')
-        time.sleep(1)
-    
-    # Run test
-    t_all, volt_all, curr_all = run_amperometry(dev, name)
+# Loop for continuous testing    
+while True:
+        user_input = input("Add test strip (t) or exit (exit): ").strip().lower()
 
-    # Calibrate and estimate concentration
-    reading = run_calibration(t_all, volt_all, curr_all)
+        if user_input == 'exit':
+            print("Exiting program.")
+            break
+        elif user_input == 't':
+            for i in range(5, 0, -1):
+                print(f"Running test in {i}...", end='\r')
+                time.sleep(1)
 
-    # Save values
-    save_and_send_data(reading, giga_port)
+            print("Running test...")
+
+            try:
+                t_all, volt_all, curr_all = run_amperometry(dev, name)
+                reading = run_calibration(t_all, volt_all, curr_all)
+                save_and_send_data(reading, giga_port)
+                print(f"Glucose: {reading:.0f} mg/dL")
+            except Exception as e:
+                print(f"Error during test: {str(e)}")
+
+            print("\nTest complete.\n")
+        else:
+            print("Invalid input. Please type 't' to run a test or 'exit' to quit.\n")
