@@ -24,6 +24,9 @@
     <ul>
       <li><strong>Live concentration display</strong>: Values from CSV files are sent from Python to Arduino and rendered as on-screen readings.</li>
       <li><strong>Touchscreen interactivity</strong>: The UI includes user selection via checkboxes and the ability to add new users with an on-screen keyboard.</li>
+      <li><strong>User system</strong>: A dynamic list of users can be selected before each reading. Selecting "New User" prompts an on-screen keyboard to register a new entry.</li>
+      <li><strong>Reading system</strong>: The system waits for an incoming signal from Python before updating the concentration. Once received, the value is shown with appropriate formatting.</li>
+      <li><strong>Display refresh and double-tap navigation</strong>: The user interface includes a built-in delay and logic to refresh the screen only when needed. Additionally, a double-tap gesture returns the user to the home screen or triggers other key UI transitions.</li>
       <li><strong>Concentration logging</strong>: Readings are tagged with user names and transmitted back to Python for structured storage in CSV format.</li>
       <li><strong>Improved font scaling</strong> and <strong>UI styling</strong> using LVGL for clarity and readability on the 800x480 display.</li>
       <li><strong>Integration with potentiostat functionality</strong> in Milestone 4 to support glucose readings derived from chronoamperometry.</li>
