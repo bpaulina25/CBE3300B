@@ -46,7 +46,7 @@
           <li>Use a `.bin` file converted from a logo image (e.g., <code>BinarySweeTech.bin</code>).</li>
           <li>Store this binary in your Arduino sketch using the <code>INCBIN</code> macro. Add <code>incbin.h</code> to your folder if not already present.</li>
           <li>Create a header file like <code>sweetech_logo.h</code> that includes the binary or array data of the logo.</li>
-          <li>Place all related files inside <code>final_resources/logo/</code> within your Arduino folder structure.</li>
+          <li>Place all related files inside <code>arduino_codes/logo/</code>.</li>
           <li>In your sketch, include:
             <pre><code>#include "logo/sweetech_logo.h"</code></pre>
           </li>
@@ -54,7 +54,22 @@
             <pre><code>tft.drawRGBBitmap(0, 0, sweetech_logo, 800, 480);</code></pre>
           </li>
         </ol>
-        <p>This logo appears on boot before transitioning to the interactive UI.</p>
+        <p>The logo will appear at startup before the interactive UI loads. You can download the full set of logo integration files here:</p>
+        <a href="arduino_codes/logo/" class="btn btn-outline-primary" target="_blank">📂 Access Logo Integration Files</a>
+      </div>
+    </div>
+
+    <h2 class="text-primary">📦 Custom Enclosure (CAD)</h2>
+    <button class="btn btn-info mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#cadTutorial" aria-expanded="false" aria-controls="cadTutorial">
+      🧩 Show CAD Enclosure Description and Files
+    </button>
+    <div class="collapse" id="cadTutorial">
+      <div class="card card-body">
+        <p><strong>CAD Blurb:</strong> We designed a custom plastic enclosure for our glucometer, consisting of two interlocking parts: a Top and Bottom section that assemble using a precise press-fit mechanism—no fasteners required. The case fully houses all essential components, including the potentiostat and display screen, providing a clean, compact, and functional form factor. A dedicated slot is integrated into the design to securely hold the test strip in place during measurements, ensuring consistent positioning and reliable data collection. The enclosure was optimized for ease of assembly, user accessibility, and durability, making it suitable for both lab use and field testing.</p>
+        <ul>
+          <li><a href="final_resources/Top7.SLDPRT" download class="btn btn-outline-secondary">⬆️ Download Top Enclosure File</a></li>
+          <li><a href="final_resources/Bottom7.SLDPRT" download class="btn btn-outline-secondary">⬇️ Download Bottom Enclosure File</a></li>
+        </ul>
       </div>
     </div>
 
@@ -75,4 +90,3 @@
   </footer>
 </body>
 </html>
-
