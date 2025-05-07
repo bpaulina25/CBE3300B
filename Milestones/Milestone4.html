@@ -64,17 +64,31 @@
         </ul>
 
         <h5>Relevant Code Files</h5>
-        <ul>
-            <a href="../arduino_codes/MVP%20codes/milestone4_code.py" class="btn btn-primary me-2 mb-2" target="_blank">
-              MVP Rodeostat-Arduino Code
-            </a>
-            <a href="../arduino_codes/MVP%20codes/glucometer_GUI.py" class="btn btn-secondary me-2 mb-2" target="_blank">
-              Glucometer GUI Script
-            </a>
-            <a href="../arduino_codes/MVP%20codes/glucometer.py" class="btn btn-secondary me-2 mb-2" target="_blank">
-              Glucometer Core Functions
-            </a>
-        </ul>
+        <div class="mb-3">
+          <a href="../arduino_codes/MVP%20codes/milestone4_code.py" class="btn btn-primary me-2 mb-1" target="_blank">
+            MVP Rodeostat-Arduino Code
+          </a>
+          <p class="ms-2 mb-3">
+            This script runs the Rodeostat and calibration with UI compatibility for the Arduino GIGA R1.<br>
+            <strong>Key features:</strong> Serial port auto-detection, chronoamperometry execution, signal processing, Arduino communication, and data logging.
+          </p>
+        
+          <a href="../arduino_codes/MVP%20codes/glucometer_GUI.py" class="btn btn-secondary me-2 mb-1" target="_blank">
+            Glucometer GUI Script
+          </a>
+          <p class="ms-2 mb-3">
+            Standalone Python GUI for users without Arduino display.<br>
+            <strong>Key features:</strong> Simple button interface, daily average calculation, threaded execution for responsiveness.
+          </p>
+        
+          <a href="../arduino_codes/MVP%20codes/glucometer.py" class="btn btn-secondary me-2 mb-1" target="_blank">
+            Glucometer Core Functions
+          </a>
+          <p class="ms-2 mb-3">
+            Core logic supporting both Arduino and GUI workflows.<br>
+            <strong>Key features:</strong> Modular architecture, signal processing, Excel/CSV logging, and error handling.
+          </p>
+        </div>
 
         <h5>Methodology</h5>
         <ol>
@@ -90,11 +104,32 @@
           <h5>Clarke Error Grid</h5>
           <img src="../Images/CEG_sort_of.png" alt="Clarke Error Grid" class="img-fluid my-3">
         </div>
+        
         <h5>Data Analysis Pseudocode</h5>
         <ol>
-          <li>Load raw data → DataFrame</li>
-          <li>Filter and analyze i vs 1/√t region</li>
-          <li>Fit linear model → get slope → apply calibration</li>
+          <li>
+            Load raw chronoamperometry data from Excel/CSV into a DataFrame.
+            <ul>
+              <li>Extract time, voltage, and current traces.</li>
+              <li>Filter current data once the step is applied.</li>
+            </ul>
+          </li>
+          <li>
+            Confirm if Cottrell behavior appears (diffusion-limited regime).
+            <ul>
+              <li>Slide a regression window over current vs 1/√t.</li>
+              <li>Identify the region with highest R².</li>
+            </ul>
+          </li>
+          <li>Extract Cottrell region and fit a linear regression to calculate slope.</li>
+          <li>
+            Choose a calibration model.
+            <ul>
+              <li>Compare linear vs polynomial models.</li>
+              <li>Try a piecewise model to separate low vs high glucose regimes.</li>
+            </ul>
+          </li>
+          <li>Validate performance using the Clarke Error Grid for diagnostic accuracy.</li>
         </ol>
       </div>
     </div>
