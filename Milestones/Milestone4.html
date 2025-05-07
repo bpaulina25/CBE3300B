@@ -46,6 +46,9 @@
         <pre><code>📄 CSV value: 42.7
 ✔️ Sent to Arduino: 42.7</code></pre>
         <p>The display will now show the concentration.</p>
+
+        <h6>It works!</h6>
+        <img src="../Images/team.jpg" alt="Team Photo" class="img-fluid mb-3" />
       </div>
 
       <!-- Potentiostat Tab -->
@@ -62,9 +65,9 @@
 
         <h5>Relevant Code Files</h5>
         <ul>
-          <li><a href="../MVP%20Codes/milestone4_code.py" target="_blank">MVP Rodeostat-Arduino Code</a></li>
-          <li><a href="../MVP%20Codes/glucometer_GUI.py" target="_blank">Glucometer GUI Script</a></li>
-          <li><a href="../MVP%20Codes/glucometer.py" target="_blank">Glucometer Core Functions</a></li>
+          <li><a href="../arduino_codes//MVP%20Codes/milestone4_code.py" target="_blank">MVP Rodeostat-Arduino Code</a></li>
+          <li><a href="../arduino_codes//MVP%20Codes/glucometer_GUI.py" target="_blank">Glucometer GUI Script</a></li>
+          <li><a href="../arduino_codes//MVP%20Codes/glucometer.py" target="_blank">Glucometer Core Functions</a></li>
         </ul>
 
         <h5>Methodology</h5>
@@ -73,13 +76,14 @@
           <li>Run chronoamperometry for 1s.</li>
           <li>Regress i vs 1/√t and convert slope to concentration.</li>
         </ol>
-
-        <h5>Calibration Graph</h5>
-        <img src="../Images/calibration.png" alt="Calibration Graph" class="img-fluid my-3">
-
-        <h5>Clarke Error Grid</h5>
-        <img src="../Images/CEG_sort_of.png" alt="Clarke Error Grid" class="img-fluid my-3">
-
+        <div class="col-6 text-center">
+          <h5>Calibration Graph</h5>
+          <img src="../Images/calibration.png" alt="Calibration Graph" class="img-fluid my-3">
+        </div>
+        <div class="col-6 text-center">
+          <h5>Clarke Error Grid</h5>
+          <img src="../Images/CEG_sort_of.png" alt="Clarke Error Grid" class="img-fluid my-3">
+        </div>
         <h5>Data Analysis Pseudocode</h5>
         <ol>
           <li>Load raw data → DataFrame</li>
